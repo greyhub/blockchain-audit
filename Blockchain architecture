@@ -1,0 +1,79 @@
+Blockchain architecture: A design that helps CPA firms leverage
+the technology
+
+1. Introduction
+
+2. IT architecture
+
+3. The proposed blockchain architecture and design considerations
+
+	3.1. Components of the proposed architecture
+
+		3.1.1. Client Applications and Existing Servers
+
+			Mối quan tâm:
+				+ Tính khả thi kinh tế
+				+ Động lực đầu tư (trao đổi dữ liệu điện tử)
+				+ Tính hiệu quả
+
+				+ Bảo mật & riêng tư -> mạng blockchain công khai
+				+ Tài nguyên tính toán
+				+ Khả thi hoạt động
+			=> đề xuất kiến trúc mới
+
+		3.1.2. Changelog
+
+			Đề xuất:
+				+ Triển khai trong cơ sở dữ liệu
+				+ Dấu vết kiểm toán (Xero -> không biết những gì đã sửa đổi)
+			=> Changelog - phương tiện kết nối csdl với ứng dụng	
+				+ Thay đổi được cập nhật đồng thời
+			Mục đích:
+				+ Duy trì hàm băm của mỗi giao dịch
+				+ Liên kết các bước
+			Khuyến nghị:
+				+ Băm các phân đoạn khác nhau
+				+ Tạo gốc Merkle
+				+ Siêu dữ liệu, dữ liệu chính, điều khoản giao dịch, dữ liệu giao dịch
+				sẽ được băm riêng trước
+
+				+ Mở rộng để tích hợp các quy trình kinh doanh của khách hàng
+					- Đơn đặt hàng
+					- Hóa đơn (hàm băm đơn đặt hàng)
+					- Thanh toán (hàm băm hóa đơn)
+					=> tăng cường tính toán vẹn dữ liệu
+					=> càng nhiều bước càng khó giả mạo
+					=> quá trình kiểm toán trở nên mạnh mẽ hơn
+					=> Nó có thể đặc biệt có lợi cho các doanh nghiệp đa quốc gia có hoạt động trải rộng trên một khu vực địa lý rộng lớn,
+						chi nhánh nước ngoài có thể tái tạo băm mật mã của dữ liệu nhận được 
+						và so sánh với băm bản ghi được cam kết với Sổ cái phân tán 
+						để xác thực dữ liệu mà không cần giao tiếp thêm
+			Cân nhắc:
+				+ Loại giao dịch nên được đưa vào blockchain
+				+ Với mỗi loại, xem xét phân đoạn? băm riêng?
+				+ Khi nào thì một giao dịch được coi là hoàn thành
+				+ Mức độ, phân chia changelog
+
+		3.1.3. Blockchain
+
+			+ bao gồm các khối bản ghi dữ liệu
+			+ hàm băm cha
+			+ khai thác và đồng thuận
+			+ các nút khai thác tổng hợp giao dịch, tính toán, đặt gốc Merkle
+
+			+ kết nối changelog với blockchain = khóa riêng + mã băm trong changelog + siêu dữ liệu
+
+			3.1.3.1. Security (true immutability)
+
+				+ hàm băm của changelog
+				+ các giao dịch liên quan đến khách hàng
+
+		3.1.4. CPA firms
+
+	3.2. Benefits of the proposed architecture
+
+4. Conclusion
+
+Appendix A
+
+References
